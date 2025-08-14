@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://tcs0120cm0l7"]
+
+[ext_resource type="Script" uid="uid://bi23fxko5qjl7" path="res://scripts/item.gd" id="1_tnite"]
+[ext_resource type="Texture2D" uid="uid://brxdpwp86q4qh" path="res://assets/box.png" id="2_oq5cr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttk8k"]
+size = Vector2(256, 256)
+
+[node name="Item" type="RigidBody2D"]
+input_pickable = true
+script = ExtResource("1_tnite")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oq5cr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.00012207, 4.57764e-05)
+shape = SubResource("RectangleShape2D_ttk8k")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbseh8bjtnpl2"]
+
+[ext_resource type="Script" uid="uid://dhp3doegb0xcl" path="res://scripts/main_camera.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://tcs0120cm0l7" path="res://scenes/box.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dvlsur06yug3u" path="res://scenes/ball.tscn" id="3_h2yge"]
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_7dm0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1151, 3.812e+08)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainCamera" type="Camera2D" parent="."]
+script = ExtResource("1_ig7tw")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-3.08752e-05, 1906)
+scale = Vector2(1e+07, 3812)
+mesh = SubResource("RibbonTrailMesh_7dm0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-0.5, 1906)
+scale = Vector2(1e+07, 1e-05)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="box" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(-165, -129)
+mass = 4.0
+
+[node name="ball" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(191, -47)
